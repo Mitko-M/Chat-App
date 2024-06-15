@@ -1,3 +1,4 @@
+using Chat_App.Hubs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chat_App
@@ -46,7 +47,10 @@ namespace Chat_App
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
             app.MapRazorPages();
+
+            app.MapHub<ChatHub>("/chatHub");
 
             await app.RunAsync();
         }

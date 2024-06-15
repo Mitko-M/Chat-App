@@ -8,6 +8,8 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddAppServices(this IServiceCollection services)
         {
+            services.AddSignalR();
+
             return services;
         }
 
