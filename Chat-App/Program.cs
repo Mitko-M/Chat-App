@@ -44,13 +44,21 @@ namespace Chat_App
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapAreaControllerRoute(
+                    name: "User Area",
+                    areaName: "User",
+                    pattern: "User/{controller}/{action}/{id?}");
 
-            app.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-            app.MapHub<ChatHub>("/chatHub");
+                endpoints.MapRazorPages();
+
+                endpoints.MapHub<ChatHub>("/chatHub");
+            });
 
             await app.RunAsync();
         }

@@ -1,4 +1,5 @@
 ﻿using Chat_App.Data;
+using Chat_App.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,13 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddAppServices(this IServiceCollection services)
         {
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/User/Account/Login";
+                options.LogoutPath = "/User/Account/Logout";
+            });
+
+            services.AddRazorPages();
             services.AddSignalR();
 
             return services;
@@ -17,7 +25,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             var connectionString = config.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<ChatAppDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -26,8 +34,15 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IServiceCollection AddAppIdentity(this IServiceCollection services)
         {
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.User.RequireUniqueEmail = true;
+            })
+                .AddEntityFrameworkStores<ChatAppDbContext>();
 
             return services;
         }
