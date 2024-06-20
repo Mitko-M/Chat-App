@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Chat_App.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ChatAppDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ChatAppDbContext(DbContextOptions<ChatAppDbContext> options)
             : base(options)
         {
         }

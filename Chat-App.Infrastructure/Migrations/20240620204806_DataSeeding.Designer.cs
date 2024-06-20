@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Chat_App.Infrastructure.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(ChatAppDbContext))]
     [Migration("20240620204806_DataSeeding")]
     partial class DataSeeding
     {
