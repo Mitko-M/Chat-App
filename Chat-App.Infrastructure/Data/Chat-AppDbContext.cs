@@ -1,4 +1,5 @@
-﻿using Chat_App.Infrastructure.Data.Models;
+﻿using Chat_App.Infrastructure.Data.Configuration;
+using Chat_App.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -33,6 +34,10 @@ namespace Chat_App.Data
                 .HasOne(cg => cg.ChatGroup)
                 .WithMany(cg => cg.ChatGroupUsers)
                 .HasForeignKey(cg => cg.ChatGroupId);
+
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new ChatGroupConfiguration());
+            builder.ApplyConfiguration(new ChatGroupUsersConfiguration());
 
             base.OnModelCreating(builder);
         }
