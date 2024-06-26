@@ -1,16 +1,20 @@
 using Chat_App.Core.Models;
+using Chat_App.Hubs;
+using Chat_App.HubsContracts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Diagnostics;
 
 namespace Chat_App.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            ILogger<HomeController> _logger)
         {
-            _logger = logger;
+            logger = _logger;
         }
 
         public IActionResult Index()
