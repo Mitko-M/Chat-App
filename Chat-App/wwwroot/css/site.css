@@ -20,3 +20,106 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+}
+
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+#main-container {
+    background-color: #000;
+    height: 100vh;
+    width: 100vw;
+}
+
+#contacts {
+    background-color: #161618;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#chat {
+    display: flex;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+    flex-direction: column;
+}
+
+#message-textbox {
+    order: 2;
+    width: 90%;
+    align-self: center;
+}
+
+#messages {
+    order: 1;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.chat-message, .chat-message-me {
+    background-color: #212124;
+    padding: 6px;
+    width: auto;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.chat-message {
+    align-self: start;
+}
+
+.chat-message-me {
+    align-self: end;
+    background-color: #818181;
+}
+
+.contact {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    background-color: #000;
+    padding: 8px;
+    width: 90%;
+    align-self: center;
+    border-radius: 16px;
+    margin: 8px;
+}
+
+    .contact > img, #current-contact > img {
+        width: 80px;
+        /* The border is here temporary */
+        border: 2px solid white;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    .contact:hover {
+        background-color: #212124;
+        cursor: pointer;
+        box-shadow: 1px 2px 15px gray;
+    }
+
+#current-contact {
+    display: flex;
+    border-bottom: 2px solid #212124;
+    width: 100%;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+}

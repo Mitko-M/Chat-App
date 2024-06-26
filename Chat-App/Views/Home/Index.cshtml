@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
+@* <div class="container">
     <div class="row p-1">
         <div class="col-1">User</div>
         <div class="col-5"><input type="text" id="userInput" /></div>
@@ -26,6 +26,62 @@
             <ul id="messagesList"></ul>
         </div>
     </div>
+</div> *@
+
+<div id="wrapper">
+    <div id="main-container" class="row">
+        <div id="contacts" class="col-lg-3">
+            <div class="contact">
+                <img src="https://dummyimage.com/300x200/000/fff.png">
+                <div class="contact-info">
+                    <h4>Mitko Mitkov</h4>
+                    <h6 class="text-success">Online</h6>
+                </div>
+            </div>
+            <div class="contact">
+                <img src="https://dummyimage.com/300x200/000/fff.png">
+                <div class="contact-info">
+                    <h4>Mitko Mitkov</h4>
+                    <h6 class="text-success">Online</h6>
+                </div>
+            </div>
+            <div class="contact">
+                <img src="https://dummyimage.com/300x200/000/fff.png">
+                <div class="contact-info">
+                    <h4>Mitko Mitkov</h4>
+                    <h6 class="text-success">Online</h6>
+                </div>
+            </div>
+            <div class="contact">
+                <img src="https://dummyimage.com/300x200/000/fff.png">
+                <div class="contact-info">
+                    <h4>Mitko Mitkov</h4>
+                    <h6 class="text-success">Online</h6>
+                </div>
+            </div>
+        </div>
+        <div id="chat" class="col">
+            <div id="current-contact">
+                <img src="https://dummyimage.com/300x200/000/fff.png">
+                <div class="contact-info">
+                    <h4>Mitko Mitkov</h4>
+                    <h6 class="text-success">Online</h6>
+                </div>
+            </div>
+            <div id="messages">
+                <p class="chat-message">Hello</p>
+                <p class="chat-message-me">Hi!</p>
+                <p class="chat-message">Testing the message text</p>
+                <p class="chat-message-me">And it seems it works</p>
+            </div>
+            <div class="input-group mb-3" id="message-textbox">
+                <input type="text" class="form-control" placeholder="Message...">
+                <button class="btn btn-outline-success" type="button" id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
 </div>
+
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/js/chat.js"></script>
