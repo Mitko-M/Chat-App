@@ -21,7 +21,6 @@ namespace Chat_App.Controllers
         [HttpPost]
         public async Task<IActionResult> SaveMessage()
         {
-            //TO-DO configure a database service for saving and takings chat history
             throw new NotImplementedException();
         }
     }
